@@ -1,15 +1,23 @@
-import React from "react";
+import React,{useState} from "react";
 import StockContainer from "./StockContainer";
 import PortfolioContainer from "./PortfolioContainer";
 import SearchBar from "./SearchBar";
 
+
 function MainContainer() {
+  const [stockArray, setStockArray]= useState([])
+  function handleFetchData (arrayOfData){
+    setStockArray(arrayOfData)
+
+
+  }
+   
   return (
     <div>
       <SearchBar />
       <div className="row">
         <div className="col-8">
-          <StockContainer />
+          <StockContainer onFetchData = {handleFetchData} stockArray = {stockArray} />
         </div>
         <div className="col-4">
           <PortfolioContainer />
