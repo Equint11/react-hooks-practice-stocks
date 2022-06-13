@@ -7,6 +7,7 @@ function StockContainer({onFetchData, stockArray, onBuyingStock}) {
     .then(res => res.json())
     .then((stocksData) => {onFetchData(stocksData)})
 
+
   },[])
   const stockList = stockArray.map(stock =>{
     return <Stock 

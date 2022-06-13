@@ -12,16 +12,12 @@ function MainContainer() {
   }
 
   function handleBuyingStock(stockObj) {
-    
-    const exist = boughtStocks.find(() => stockObj.name);
+    const exist = boughtStocks.find((stock) => stock.id === stockObj.id);
 
     if (!exist) {
       setBoughtStocks([...boughtStocks, stockObj]);
-    } else if (exist) {
-      const removedObject = boughtStocks.filter(
-        (stock) => stock.id !== stockObj.id
-      );
-      setBoughtStocks(removedObject);
+    } else {
+      setBoughtStocks(boughtStocks.filter((stock => stock.id !== stockObj.id)))
     }
   }
 
