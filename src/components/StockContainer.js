@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import Stock from "./Stock";
 
-function StockContainer({onFetchData, stockArray}) {
+function StockContainer({onFetchData, stockArray, onBuyingStock}) {
   useEffect(() => {
     fetch("http://localhost:3001/stocks")
     .then(res => res.json())
@@ -15,7 +15,7 @@ function StockContainer({onFetchData, stockArray}) {
     ticker = {stock.ticker}
     price ={stock.price}
     id = {stock.id}
-
+    onBuyingStock={onBuyingStock}
     />
   }) 
 
